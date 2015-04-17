@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!--[if !IE]>
+<html lang="en">
+<![endif]-->
+<!--[if lt IE 9]>
+<html lang="en" class="ie">
+<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Boxmodel FW</title>
+		<meta name="description" content="Framework for internal use at Boxmodel" />
+		<meta name="author" content="Boxmodel" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/html5shiv.js"></script>
+		<![endif]-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<!-- <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/content.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/media-queries.css" /> -->
+		<link rel="stylesheet" href="stylesheets/min/compiled.min.css" type="text/css">
+
+		<!--REMOVE site.css and prettify.css are used for framework demo site and not part of framework styles-->
+		<link rel="stylesheet" type="text/css" href="stylesheets/site.css" />
+		<link rel="stylesheet" type="text/css" href="google-code-prettify/prettify.css" />
+		<!--REMOVE-->
+	</head>
+
+	<body>
+		<header>
+			<div class="cubeContainer animate">
+			  <div class="cube animation-item rotateXY">
+				<div class="front"></div>
+				 <div class="back"></div>
+				 <div class="right"></div>
+				 <div class="left"></div>
+				 <div class="top"></div>
+				 <div class="bottom"></div>
+			  </div>
+			</div>
+			<nav id="fwNav">
+				<ul class="cf">
+					<li>
+						<a href="#started" class="active">Getting started</a>
+					</li>
+					<li>
+						<a href="#typography">Typography</a>
+						<ul>
+							<li>
+								<a href="#headers">Headers</a>
+							</li>
+							<li>
+								<a href="#lists">Lists</a>
+							</li>
+							<li>
+								<a href="#quotes">Quotes</a>
+							</li>
+							<li>
+								<a href="#othertype">Other typography</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#buttons">Buttons</a>
+					</li>
+					<li>
+						<a href="#forms">Forms</a>
+					</li>
+					<li>
+						<a href="#grid">Grid</a>
+						<ul>
+							<li>
+								<a href="#nesting">Nesting</a>
+							</li>
+							<li>
+								<a href="#offset">Offset</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#navigation">Navigation</a>
+						<ul>
+							<li>
+								<a href="#leadNav">Lead</a>
+							</li>
+							<li>
+								<a href="#breadcrumb">Breadcrumb</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#animations">Animations</a>
+					</li>
+					<li>
+						<a href="#respondImg">Responsive images</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="contain">
+			<section id="started" class="nav-sec">
+				<h1>Boxmodel Framework + Patterns (Heading one)</h1>
+				<h2>BMFW (Heading two)</h2>
+				<em>Ver: 2.0.9</em>
+				<h3>Getting started</h3>
+				<p>This is the demo site for the Boxmodel internal framework, aimed at making is easier and quicker to start new projects and provide a level of consistency between projects.</p>
+				<p>Getting started with the framework is easy, simply use this page as a template, remove the content and your good to go.</p>
+				<p>This page provides a simple description as to how each part is built up and the syntax required.</p>
+				<p>Make sure you have SASS installed on your machine as this is a SASS based framework, all styles have been split into seperate SCSS files and included within styles.scss. There is a seperate content.scss file for all your site specific styles.</p>
+			</section>
+			<section id="typography" class="nav-sec">
+				<h2>Typography</h2>
+				<p>The default body font size is 16px (this can be easily changed in global-variables.scss) and is set using em, so any font size decalred is relative to its parent. The framework did intially use REM and a fallback of EM but at the time of writing there is a bug in Chrome when using percentage fontsize on the HTML element and REM on the body. The line-height is calculated using Chris Pearson's golden ratio he describes <a href="http://www.pearsonified.com/2011/12/golden-ratio-typography.php">here</a>. The idea is that the line height should be equal to the font size * 'the golden ratio' (1.61803398875). This ratio value is stored as a variable in global-variables.scss. Some interesting information about The Golden Number can be found <a href="http://www.goldennumber.net/">here</a>.</p>
+				<p id="headers" class="nav-sec">Headings (h1, h5) by default start at 35px, there is a mixin in type.scss that calculates the sizes for all headers based on 10% of the previous header's size to keep them relative to each other. This can be easily changed to match a design.</p>
+				<h3>Heading three</h3>
+				<ul id="lists" class="nav-sec">
+					<li>Point one</li>
+					<li>Point two</li>
+					<li>Point three
+						<ul>
+							<li>Point three.1</li>
+							<li>Point three.2</li>
+							<li>Point three.3</li>
+						</ul>
+					</li>
+					<li>Point four</li>
+				</ul>
+				<h4>Heading four</h4>
+				<ol>
+					<li>Ordered point one</li>
+					<li>Ordered point two</li>
+					<li>Ordered point three</li>
+					<li>Ordered point four</li>
+				</ol>
+				<h5 id="quotes" class="nav-sec">Heading five</h5>
+				<blockquote>"This is a quote that somebody has said"</blockquote>
+				<h6>Heading six</h6>
+				<h3 id="othertype" class="nav-sec">Other typography</h3>
+				<p>As with most frameworks BMFW provides various generic styles for error / success messages, info messages and tooltips.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;p class=&quot;error&quot;&gt;You appear to have done something to warrant receiving an error message.&lt;/p&gt;
+&lt;p class=&quot;success&quot;&gt;You made made no error, great success!&lt;/p&gt;
+</pre>
+				<p class="error">You appear to have done something to warrant receiving an error message.</p>
+				<p class="success">You made made no error, great success!</p>
+<pre class="prettyprint linenums lang-html">
+&lt;a href=&quot;#&quot; class=&quot;info tool-bottom&quot;&gt;Bottom tooltip
+	&lt;div class=&quot;tooltip&quot;&gt;
+		&lt;p&gt;This is...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;info tool-right&quot;&gt;Right tooltip
+	&lt;div class=&quot;tooltip&quot;&gt;
+		&lt;p&gt;This is...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;info tool-left&quot;&gt;Left tooltip
+	&lt;div class=&quot;tooltip&quot;&gt;
+		&lt;p&gt;This is...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;info tool-top&quot;&gt;Top tooltip
+	&lt;div class=&quot;tooltip&quot;&gt;
+		&lt;p&gt;This is...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/a&gt;
+</pre>
+				<div class="row no-bg">
+					<div class="col three-col">
+						<a href="#" class="info tool-bottom">Bottom tooltip
+							<div class="tooltip">
+								<p>This is the content within the tooltip, make sure there are no elements between the element with the info class and the tooltip div.</p>
+							</div>
+						</a>
+					</div>
+					<div class="col three-col">
+						<a href="#" class="info tool-right">Right tooltip
+							<div class="tooltip">
+								<p>This is content within a tooltip to appear on the right of an info element.</p>
+							</div>
+						</a>
+					</div>
+					<div class="col three-col">
+						<a href="#" class="info tool-left">Left tooltip
+							<div class="tooltip">
+								<p>This is content within a tooltip to appear on the left of an info element.</p>
+							</div>
+						</a>
+					</div>
+					<div class="col three-col">
+						<a href="#" class="info tool-top">Top tooltip
+							<div class="tooltip">
+								<p>This is content within a tooltip to appear on the top of an info element.</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<hr>
+
+			<section id="buttons" class="nav-sec">
+				<h2>Buttons</h2>
+				<p>Two button variations in two colours have been provided by default. They use a button mixin within button.scss and variables from global-variables.scss for the colours, text-shadow and box-shadow, this allows them to be modified and changed easily.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Button 1&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn alt&quot;&gt;Button 2&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn small&quot;&gt;Button 3&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn alt small&quot;&gt;Button 4&lt;/a&gt;
+</pre>
+				<a href="#" class="btn">Button 1</a>
+				<a href="#" class="btn alt">Button 2</a>
+				<a href="#" class="btn small">Button 3</a>
+				<a href="#" class="btn alt small">Button 4</a>
+			</section>
+
+			<hr>
+
+			<section id="forms" class="nav-sec">
+				<h2>Forms</h2>
+				<p>Example contact form</p>
+				<form id="form">
+					<div class="frmRow">
+						<div class="row negative-10">
+							<div class="col six-col">
+								<div class="even-pad">
+									<label for="firstname">First name</label>
+									<input type="text" name="firstname" id="firstname" placeholder="First name" required />
+								</div>
+							</div>
+							<div class="col six-col">
+								<div class="even-pad">
+									<label for="surname">Surname</label>
+									<input type="text" name="surname" id="surname" placeholder="Surname" required />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="frmRow">
+						<label for="contactEmail">Email</label>
+						<input type="email" name="email" id="contactEmail" placeholder="@" required />
+					</div>
+					<div class="frmRow">
+						<label for="contactTel">Number</label>
+						<input type="tel" name="tel" id="contactTel" placeholder="00000 000 000" />
+					</div>
+					<div class="frmRow">
+						<label for="contactUrl">Website</label>
+						<input type="url" name="website" id="contactUrl" placeholder="www" />
+					</div>
+					<div class="frmRow">
+						<label>Message</label>
+						<textarea>Say something</textarea>
+					</div>
+					<div class="frmRow">
+						<input type="checkbox" id="check1" name="check1" />
+						<label for="check1">Checkbox</label>
+					</div>
+					<div class="frmRow">
+						<input type="radio" id="radio1" name="radio1" />
+						<label for="radio1">Radio</label>
+					</div>
+					<button class="btn" type="submit">Send</button>
+				</form>
+			</section>
+
+			<hr>
+
+			<section id="grid" class="nav-sec">
+				<h2>Grid</h2>
+				<p>BMFW grid is a customsiseable number (set in global-variables.scss) of columns grid that will adapt to any browser width up to the maximum width  (set in global-variables.scss).</p>
+				<p>By default, the maximum number of collumns can be set at 24.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col one-col&quot;&gt;
+		&lt;div&gt;
+			&lt;em&gt;1&lt;/em&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;col eleven-col&quot;&gt;
+		&lt;div&gt;
+			&lt;em&gt;11&lt;/em&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<div class="row">
+					<div class="col one-col">
+						<div>
+							<em>1</em>
+						</div>
+					</div>
+					<div class="col eleven-col">
+						<div>
+							<em>11</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col two-col">
+						<div>
+							<em>2</em>
+						</div>
+					</div>
+					<div class="col ten-col">
+						<div>
+							<em>10</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col three-col">
+						<div>
+							<em>3</em>
+						</div>
+					</div>
+					<div class="col nine-col">
+						<div>
+							<em>9</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col four-col">
+						<div>
+							<em>4</em>
+						</div>
+					</div>
+					<div class="col eight-col">
+						<div>
+							<em>8</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col five-col">
+						<div>
+							<em>5</em>
+						</div>
+					</div>
+					<div class="col seven-col">
+						<div>
+							<em>7</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col six-col">
+						<div>
+							<em>6</em>
+						</div>
+					</div>
+					<div class="col six-col">
+						<div>
+							<em>6</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col twelve-col">
+						<div>
+							<em>12</em>
+						</div>
+					</div>
+				</div>
+				<h3>Even spacing grid</h3>
+				<p>BMFW can also create grid based layouts with even spacing between each column while mainting a flush finish against the edges of the continer.</p>
+				<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;row negative-10&quot;&gt;
+	&lt;div class=&quot;col one-col&quot;&gt;
+		&lt;div class=&quot;even-pad&quot;&gt;
+			&lt;p&gt;The class of even-pad provides the even spacing for the columns&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;col eleven-col&quot;&gt;
+		&lt;div class=&quot;even-pad&quot;&gt;
+			&lt;em&gt;11&lt;/em&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<div class="row negative-10">
+					<div class="col one-col">
+						<div class="even-pad">
+							<em>1</em>
+						</div>
+					</div>
+					<div class="col eleven-col">
+						<div class="even-pad">
+							<em>11</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col two-col">
+						<div class="even-pad">
+							<em>2</em>
+						</div>
+					</div>
+					<div class="col ten-col">
+						<div class="even-pad">
+							<em>10</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col three-col">
+						<div class="even-pad">
+							<em>3</em>
+						</div>
+					</div>
+					<div class="col nine-col">
+						<div class="even-pad">
+							<em>9</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col four-col">
+						<div class="even-pad">
+							<em>4</em>
+						</div>
+					</div>
+					<div class="col eight-col">
+						<div class="even-pad">
+							<em>8</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col five-col">
+						<div class="even-pad">
+							<em>5</em>
+						</div>
+					</div>
+					<div class="col seven-col">
+						<div class="even-pad">
+							<em>7</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col six-col">
+						<div class="even-pad">
+							<em>6</em>
+						</div>
+					</div>
+					<div class="col six-col">
+						<div class="even-pad">
+							<em>6</em>
+						</div>
+					</div>
+				</div>
+				<div class="row negative-10">
+					<div class="col twelve-col">
+						<div class="even-pad">
+							<em>12</em>
+						</div>
+					</div>
+				</div>
+				<h3 id="nesting" class="nav-sec">Nesting</h3>
+				<p>The grid allows for columns to be nested easily within other columns while also keeping the fluid layout.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col six-col&quot;&gt;
+		&lt;div&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;div class=&quot;col six-col&quot;&gt;
+					&lt;div&gt;
+						&lt;em&gt;6&lt;/em&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;col six-col&quot;&gt;
+					&lt;div&gt;
+						&lt;em&gt;6&lt;/em&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;col six-col&quot;&gt;
+		&lt;div&gt;
+			&lt;em&gt;6&lt;/em&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<div class="row negative-10">
+					<div class="col twelve-col">
+						<div class="even-pad show-color">
+							<div>
+								<em>12</em>
+							</div>
+							<div class="row negative-10">
+								<div class="col six-col">
+									<div class="even-pad show-color">
+										<div>
+											<em>6</em>
+										</div>
+										<div class="row negative-10">
+											<div class="col six-col">
+												<div class="even-pad show-color">
+													<div>
+														<em>6</em>
+													</div>
+													<div class="row negative-10">
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col six-col">
+												<div class="even-pad show-color">
+													<div>
+														<em>6</em>
+													</div>
+													<div class="row negative-10">
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col six-col">
+									<div class="even-pad show-color">
+										<div>
+											<em>6</em>
+										</div>
+										<div class="row negative-10">
+											<div class="col six-col">
+												<div class="even-pad show-color">
+													<div>
+														<em>6</em>
+													</div>
+													<div class="row negative-10">
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col six-col">
+												<div class="even-pad show-color">
+													<div>
+														<em>6</em>
+													</div>
+													<div class="row negative-10">
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+														<div class="col six-col">
+															<div class="even-pad">
+																<div>
+																	<em>6</em>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr>
+
+			<section id="offset" class="nav-sec">
+				<h2>Offset</h2>
+				<p>BMFW provides a method of applying margin to the left of elements to offset them.</p>
+				<p>Fluid offsetting is shown below.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;col eleven-col offby-one&quot;&gt;
+		&lt;div&gt;
+			&lt;em&gt;1&lt;/em&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+				<div class="row">
+					<div class="col eleven-col offby-one">
+						<div>
+							<em>1</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col ten-col offby-two">
+						<div>
+							<em>2</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="col nine-col offby-three">
+						<div>
+							<em>3</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col eight-col offby-four">
+						<div>
+							<em>4</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col seven-col offby-five">
+						<div>
+							<em>5</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col six-col offby-six">
+						<div>
+							<em>6</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col five-col offby-seven">
+						<div>
+							<em>7</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col four-col offby-eight">
+						<div>
+							<em>8</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col three-col offby-nine">
+						<div>
+							<em>9</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col two-col offby-ten">
+						<div>
+							<em>10</em>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col one-col offby-eleven">
+						<div>
+							<em>11</em>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<hr>
+
+			<section id="navigation" class="nav-sec">
+				<h2>Navigation</h2>
+				<p>The BMFW provides sample markup for lead and breadcrumb navigation elements.</p>
+				<nav id="leadNav" class="nav-sec">
+					<ul class="cf">
+						<li>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">About</a>
+						</li>
+						<li>
+							<a href="#">Store</a>
+						</li>
+						<li>
+							<a href="#">Help</a>
+						</li>
+						<li>
+							<a href="#">Contact</a>
+						</li>
+					</ul>
+				</nav>
+				<p>The breadcrumb uses the before pseudo element to create the icons, this can be easily swapped for an image sprite.</p>
+				<div id="breadcrumb" class="nav-sec">
+					<ul class="cf">
+						<li>
+							<a href="#" class="home">Home</a>
+						</li>
+						<li>
+							<a href="#">Store</a>
+						</li>
+						<li>
+							<a href="#">Product 1</a>
+						</li>
+						<li>
+							<a href="#">Checkout</a>
+						</li>
+						<li>
+							<span>Confirmation</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<hr>
+
+			<section id="animations" class="nav-sec">
+				<h2>Animations</h2>
+				<p>There is a small animation library that is in the process of being built, below are some of the example animations that are currently there and different ways of using them.</p>
+				<p>Click the boxes to run the animation again.</p>
+
+				<h3>Fade and bounce</h3>
+				<div class="table-display">
+					<div class="anim-fadeBounce delay-1 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-fadeBounce delay-1&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Fade and scale</h3>
+				<div class="table-display">
+					<div class="anim-fadeScale delay-1 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-fadeBounce delay-1&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Animation with delay</h3>
+				<div class="table-display">
+					<div class="anim-fadeBounce delay-3 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-fadeBounce delay-3&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Rotate with extended duration</h3>
+				<div class="table-display">
+					<div class="anim-rotate duration-5 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-rotate duration-5&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Rotate with infinite iterations</h3>
+				<div class="table-display">
+					<div class="anim-rotate infinite duration-5 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-rotate infinite duration-5&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Rotate with fade</h3>
+				<div class="table-display">
+					<div class="anim-fadeRotate duration-5 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-fadeRotate duration-5&quot;</pre>
+					</div>
+				</div>
+
+				<h3>Rotate XY</h3>
+				<div class="table-display">
+					<div class="anim-rotateXY duration-5 example-anim-box js-scroll"></div>
+					<div>
+						<pre class="prettyprint linenums lang-html">class=&quot;animate anim-rotateXY duration-5&quot;</pre>
+					</div>
+				</div>
+			</section>
+
+			<hr>
+
+			<section id="respondImg" class="nav-sec">
+				<h2>Responsive images</h2>
+				<p>To save page size and load time it is reccommended to serve suitable sized images depending on the resolutions, the resolution size typically relates to the device they are viewing the web page on.</p>
+				<p>The previous method was to use the same image at all resolutions, this either means you are serving a large image at small resolutions or a small image at large resolutions resulting in a loss of quality.</p>
+				<h4>Serving different sized images</h4>
+				<p>Using the below method the browser works out which image to serve, with a fallback to those that don't support <strong>srcset</strong>. The numbers to the right of each src represent the images natural width.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;img srcset=&quot;img-full-large.jpg 1920w, img-full-medium.jpg 1280w, img-full-small.jpg 768ww&quot;
+	src=&quot;img-full-medium.jpg&quot;
+	alt=&quot;Responsive images&quot; /&gt;
+</pre>
+				<p>The above methods leaves the selection of which image to serve down to the browser, you can have more control over which image the browser shows by setting some size rules. The attribute <strong>sizes</strong> refers to the layout width that will be containing the image.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;img srcset=&quot;img-full-large.jpg, img-full-medium.jpg, img-full-small.jpg&quot;
+	sizes=&quot;100vw&quot;
+	src=&quot;img-full-medium.jpg&quot;
+	alt=&quot;Responsive images&quot; /&gt;
+</pre>
+				<p>The example above states that the image to choose from will fill 100% of the viewport. You can use any form of css length here. The sizes attribute value doesn't actualy size the image to that width, it is purely to help the browser pick out the most suitable image, a good way to look at it is 'When in the page the image will be about 'this big''.</p>
+				<p>You could even use media queries.</p>
+<pre class="prettyprint linenums lang-html">
+&lt;img srcset=&quot;img-full-large.jpg, img-full-medium.jpg, img-full-small.jpg&quot;
+	sizes=&quot;(min-width: 1280px) 960px, 100vw&quot;
+	src=&quot;img-full-medium.jpg&quot;
+	alt=&quot;Responsive images&quot; /&gt;
+</pre>
+				<p>The example above states that if the viewport is above 1920px then the image used will be displayed at around 960px, else it will be 100% of the viewport width.</p>
+				<div class="full">
+					<img srcset="images/img-full-large.png 960w, images/img-full-medium.png 768w, images/img-full-small.png 480w"
+						 sizes="(min-width: 1280px) 960px, 100vw"
+						 src="images/img-full-medium.png"
+						 alt="Responsive images" />
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<!--REMOVE prettify.js only used for framework demo site-->
+		<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+		<script>
+			prettyPrint();
+		</script>
+		<!--REMOVE-->
+	</body>
+</html>
